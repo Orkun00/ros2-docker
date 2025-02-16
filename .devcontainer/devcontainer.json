@@ -1,0 +1,30 @@
+{
+    "name": "Root Container Dev",
+    "build": {
+        // Adjust if your Dockerfile is in another location
+        "dockerfile": "../Dockerfile",
+        "context": "."
+    },
+
+    // 1) We set the default workspace folder to "/"
+    "workspaceFolder": "/",
+
+    // 2) (Optional) If you still want to bind your local folder into the container,
+    //    mount it under some subdirectory like "/host". This won't affect the workspaceFolder.
+    "workspaceMount": "source=${localWorkspaceFolder},target=/host,type=bind",
+
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+
+    // Extensions you want inside the container
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-docker",
+        "ajshort.vscode-ros"
+    ],
+
+    // User to run as inside the container
+    "remoteUser": "root"
+}
